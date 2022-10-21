@@ -1,1 +1,1 @@
-# PyOL - Python3 Library for Interacting with RE-AOL
+# PyOL - Python3 Library for Interacting with P3OL
