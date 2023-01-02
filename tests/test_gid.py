@@ -105,7 +105,9 @@ class TestGlobalId(unittest.TestCase):
         self.assertEqual(gid.gid, 0xDEADC0DE)
 
         with self.assertRaises(ValueError):
+            # noinspection PyTypeChecker
             GlobalId.from_tuple((1,))
+            # noinspection PyTypeChecker
             GlobalId.from_tuple((1, 2, 3, 4))
             GlobalId.from_tuple((99999, 1))
             GlobalId.from_tuple((1, 99999))
@@ -126,4 +128,4 @@ class TestGlobalId(unittest.TestCase):
         with self.assertRaises(ValueError):
             GlobalId.from_bytes(b'\xC0\xDE')
             GlobalId.from_bytes(b'\xDE\xAD\xC0\xDE\xDE\xAD\xC0\xDE')
-            GlobalId.from_Bytes(b'\xDE\xAD\xC0\xDE', byteorder='deadcode')
+            GlobalId.from_bytes(b'\xDE\xAD\xC0\xDE', byteorder='deadcode')
