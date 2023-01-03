@@ -1,4 +1,4 @@
-"""PyOL Exceptinos"""
+"""PyOL Exceptions"""
 
 
 __all__ = ['PyOLException', 'PyOLError']
