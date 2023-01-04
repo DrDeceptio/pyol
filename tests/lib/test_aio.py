@@ -415,7 +415,8 @@ class EndpointTestCase(unittest.IsolatedAsyncioTestCase):
         self.assertTrue(endpoint.connected)
         self.assertFalse(endpoint.writing_paused)
 
-        # Stop the listener
+        # Stop the endpoint and listener
+        await endpoint.close()
         server_task.cancel()
         await asyncio.sleep(0)
 
