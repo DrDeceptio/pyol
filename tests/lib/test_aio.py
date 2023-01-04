@@ -62,6 +62,7 @@ class MockJob:
             await server.serve_forever()
         finally:
             server.close()
+            await server.wait_closed()
 
         self.exited = True
 
@@ -418,6 +419,8 @@ class EndpointTestCase(unittest.IsolatedAsyncioTestCase):
         # Stop the endpoint and listener
         await endpoint.close()
         server_task.cancel()
+        sj.writer.close()
+        await sj.writer.wait_closed()
         await asyncio.sleep(0)
 
     async def test_close(self):
